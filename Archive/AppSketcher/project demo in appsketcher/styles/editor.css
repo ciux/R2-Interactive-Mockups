@@ -1,0 +1,38 @@
+.body {border: none !important; font-size: 80%; margin: 1px;}
+
+.content {position: relative; width: 960px; margin-left: 0px; margin-right: auto;}
+.main {position: relative; height: 640px;}
+.clear {position: relative; clear: both;}
+.section {overflow: visible !important; padding: 0px !important;}
+
+.div {position: relative;}
+.fieldset {position: relative; margin: 0px; padding: 0px;}
+.fieldset legend {margin-left: 0.625em;}
+.tab_panel {position: relative; padding: 0px !important;}
+.view_stack {position: relative;}
+.view {position: relative; display: none;}
+
+.heading {margin: 0px;}
+.link {display: inline-block; overflow: hidden; margin: 0px;}
+.label {display: inline-block; overflow: hidden; margin: 0px;}
+.p {overflow: auto; margin: 0px; line-height: normal;}
+.ul, .ol {overflow: auto; margin: 0px; line-height: normal; padding-left: 40px !important;}
+
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button, .ui-widget input.ui-button {font-size: 13.3px;}
+.button, .dropdown, .list, .file_upload, .password, .text_input, .textarea {margin: 0px;}
+.date_field {margin: 0px -16px 0px 0px; padding: 1px; vertical-align: middle;}
+.date_icon {vertical-align: middle;}
+.date_icon[disabled] {opacity: 0.3;}
+.slider {display: block;}
+.ui-widget input.jquery_button, .ui-widget .slider, .ui-widget .v_slider {font-size: 11.8px;}
+
+.button_bar, .v_button_bar, .link_bar, .v_link_bar, .checkbox_bar, .v_checkbox_bar, .radio_bar, .v_radio_bar {display: inline-block;}
+.button_bar, .link_bar, .checkbox_bar, .radio_bar {white-space: nowrap;}
+.button_bar > .outer, .link_bar > .outer, .checkbox_bar > .outer, .radio_bar > .outer {position: relative; display: inline-block; vertical-align: middle; height: auto !important; margin-left: 5px;}
+.button_bar > .outer:first-child, .link_bar > .outer:first-child, .checkbox_bar > .outer:first-child, .radio_bar > .outer:first-child {margin-left: 0px !important;}
+.v_button_bar > .outer, .v_link_bar > .outer, .v_checkbox_bar > .outer, .v_radio_bar > .outer {position: relative; display: inline-block; height: auto !important; margin-top: 5px;}
+.v_button_bar > .outer:first-child, .v_link_bar > .outer:first-child, .v_checkbox_bar > .outer:first-child, .v_radio_bar > .outer:first-child {margin-top: 0px !important;}
+
+.bar_chart, .line_chart, .pie_chart {width: 200px; height: 200px;}
+.h_line {border-top: 1px solid;}
+.v_line {border-left: 1px solid;}
