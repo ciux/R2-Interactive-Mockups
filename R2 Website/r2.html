@@ -1,0 +1,558 @@
+<html>
+<head>
+
+<!--
+NOTE that html comments delimiters are "<!--" and "- - >" (remove the spaces), while
+CSS comments are C-like: /* and */
+-->
+
+
+<!-- STYLE  -->
+
+<style type="text/css" media="screen">
+
+body {
+  background-color:#eaeaea;
+  font-family: verdana,helvetica;
+  font-size: 12px;
+}
+
+#banner {
+  background-color:#ffffff;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  margin:0 auto;
+  border:2px solid;
+  z-index:1;
+}
+
+.logo {
+    position:absolute;
+    width:800;
+    height:70;
+    top:10;
+    left:5;
+}
+
+#toc {
+  position:absolute;
+  top:63;
+  left:0;
+  height:90%;
+  width:270;
+  padding-top: 10;
+}
+
+#toc ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: .75em;
+	text-indent: 0em;
+}
+
+#table {
+	margin-top:2;
+	margin-left:10;
+	border: none;
+	border-collapse:collapse;
+	font-size: 9px;
+	text-align:center;
+}
+th {
+	border: none;
+}
+th.hdrRow {
+	padding:1;
+	width:45;
+}
+th.hdrCol {
+	padding:2;
+	heigth:35;
+	text-align:left;
+}
+td {
+	background-color: #ffffff;
+	border: 1px solid #909090;
+}
+
+#breadcrumbs {
+	position:absolute;
+	top:66;
+	left:271;
+	height: 21;
+	width: 77.6%;
+	padding-top: 2;
+	padding-left: 10;
+	font-weight: bold;
+	background-color: #777777;
+	color: white;
+}
+
+.explanation {
+	height: 50;
+	padding-top: 10;
+	padding-left: 5;
+	font-size: 14px;
+	background-color: #ffffcc;
+	border: 1px solid gray;
+}
+
+#content {
+  position:absolute;
+  top:80;
+  left:271;
+  height:90%;
+  width:78.4%;
+  margin:5 auto;
+  padding:0;
+  overflow:auto;
+}
+
+/*<!--------------------------------------------------------------------------------------------------------------------
+The "videowrapper" bit here ensures that the embedded flash files (*.swf) scale appropriately to the size of their div
+container.  See: http://webdesignerwall.com/tutorials/css-elastic-videos.
+
+NOTE that if you produce your flash content with Flash Catalyst your swf files will NOT scale, but will remain fixed
+size (even if you set them internally to 'resize').
+------------------------------------------------------------------------------------------------------------------------>*/
+
+.videoWrapper {
+ 	position: relative;
+ 	padding-bottom: 60%;
+ 	padding-top:30px;
+ 	height: 0;
+ 	overflow:hidden;
+}
+.videoWrapper iframe,
+.videoWrapper object,
+.videoWrapper embed {
+ 	position: absolute;
+ 	top: 0;
+ 	left: 0;
+ 	width: 100%;
+ 	height: 100%;
+}
+
+/*<!-- Also wrapped the image files, but not sure it's necessary -->*/
+
+.imgWrapper {
+  position: relative;
+  padding-bottom: 74%;
+  height: 0;
+}
+.imgWrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: auto;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	font-weight: bold;
+	color: #065fa9;
+}
+a:hover, a:active {
+	text-decoration: none;
+	color: #eaeaea;
+	background-color: #065fa9;
+}
+
+.button {
+   border: none;
+   background: #ffffff;
+   color: #065fa9;
+   width: 100%;
+   font-size: 10px;
+   font-weight: bold;
+   text-decoration: none;
+   vertical-align: middle;
+}
+.button:hover, button:active{
+   background: #065fa9;
+   color: #ffffff;
+}
+
+
+</style>
+
+
+<!-- JAVASCRIPT -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+function contentChange(divId, bc){
+	document.getElementById('content').innerHTML = document.getElementById(divId).innerHTML;
+	document.getElementById('breadcrumbs').innerHTML = bc;
+}
+</script>
+
+</head>
+
+
+<!-- BODY -->
+
+<body onLoad="contentChange('ppFacepage', 'Pixel-Perfect Mockups > Facepage')">
+
+
+<div id="banner">
+   <div class="logo">
+     <img alt="Ocean Observatories Initiative" src="header.png"/>
+   </div>
+</div>
+
+
+<div id="toc">
+
+	<ul>
+		<li>Pixel-Perfect Mockups</li>
+		<ul>
+ 			<li><a href="javascript:contentChange('ppDashboard', 'Pixel-Perfect Mockups > Dashboard')">Dashboard</a></li>
+			<li><a href="javascript:contentChange('ppFacepage', 'Pixel-Perfect Mockups > Facepage')">Facepage</a></li>
+			<li><a href="javascript:contentChange('ppRelated', 'Pixel-Perfect Mockups > Related Resources')">Related Resources Page</a></li>
+			<li><a href="javascript:contentChange('ppStatus', 'Pixel-Perfect Mockups > Status')">Status Page</a></li>
+		</ul>
+	</ul>
+
+	<ul>
+		<li>Wireframes</li>
+		<ul>
+			<li>??</a></li>
+		</ul>
+	</ul>
+
+	<ul>
+		<li>Resource Mockups</li>
+		<table id="table">
+			<tr>
+				<th class="hdrRow">Facepage</th>
+				<th class="hdrRow">Related</th>
+				<th class="hdrRow">Status</th>
+			</tr>
+			<tr>
+				<td><button class="button" onclick="contentChange('collectionFacepage', 'Resource Mockups > Collection > Facepage')">CF</button></td>
+				<td><button class="button" onclick="contentChange('collectionRelated', 'Resource Mockups > Collection > Related Resources')">CR</button></td>
+				<td><button class="button" onclick="contentChange('collectionStatus', 'Resource Mockups > Collection > Status')">CS</button></td>
+				<th class="hdrCol">Collection</th>
+			</tr>
+			<tr>
+				<td><button class="button" onclick="contentChange('observatoryFacepage', 'Resource Mockups > Observatory > Facepage')">OF</button></td>
+				<td><button class="button" onclick="contentChange('observatoryRelated', 'Resource Mockups > Observatory > Related Resources')">OR</button></td>
+				<td><button class="button" onclick="contentChange('observatoryStatus', 'Resource Mockups > Observatory > Status')">OS</button></td>
+				<th class="hdrCol">Observatory</th>
+			</tr>
+			<tr>
+				<td><button class="button" onclick="contentChange('platformMFacepage', 'Resource Mockups > Platform (mooring) > Facepage')">PmF</button></td>
+				<td><button class="button" onclick="contentChange('platformMRelated', 'Resource Mockups > Platform (mooring) > Related Resources')">PmR</button></td>
+				<td><button class="button" onclick="contentChange('platformMStatus', 'Resource Mockups > Platform (mooring) > Status')">PmS</button></td>
+				<th class="hdrCol">Platform (mooring)</th>
+			</tr>
+			<tr>
+				<td><button class="button" onclick="contentChange('platformGFacepage', 'Resource Mockups > Platform (glider) > Facepage')">PgF</button></td>
+				<td><button class="button" onclick="contentChange('platformGRelated', 'Resource Mockups > Platform (glider) > Related Resources')">PgR</button></td>
+				<td><button class="button" onclick="contentChange('platformGStatus', 'Resource Mockups > Platform (glider) > Status')">PgS</button></td>
+				<th class="hdrCol">Platform (glider)</th>
+			</tr>
+			<tr>
+				<td><button class="button" onclick="contentChange('instrumentFacepage', 'Resource Mockups > Instrument > Facepage')">IF</button></td>
+				<td><button class="button" onclick="contentChange('instrumentRelated', 'Resource Mockups > Instrument > Related Resources')">IR</button></td>
+				<td><button class="button" onclick="contentChange('instrumentStatus', 'Resource Mockups > Instrument > Status')">IS</button></td>
+				<th class="hdrCol">Instrument</th>
+			</tr>
+		</table>
+	</ul>
+<!-- <a href="javascript:contentChange('')"> -->
+	<ul>
+		<li>Custom Views</li>
+		<ul>
+			<li><a href="javascript:contentChange('customViewDrillDown', 'Custom Views > Chart Drill-Down')">Chart Drill-Down</a></li>
+			<li><a href="javascript:contentChange('customViewCommand', 'Custom Views > Platform Command')">Platform Command</a></li>
+			<li><a href="javascript:contentChange('customViewDirectCommand', 'Custom Views > Platform Direct Command')">Platform Direct Command</a></li>
+		</ul>
+	</ul>
+
+	<ul>
+		<li>Panel Interaction Demos</li>
+		<ul>
+			<li><a href="javascript:contentChange('dragNDrop', 'Panel Interaction Demos > Dashboard drag and drop')">Dashboard drag and drop</a></li>
+			<li><a href="javascript:contentChange('filterSpec', 'Panel Interaction Demos > Filtering')">Filtering</a></li>
+			<li><a href="javascript:contentChange('splitTables', 'Panel Interaction Demos > Platform Status detail views')">Platform Status detail views</a></li>
+			<li><a href="javascript:contentChange('mapExpand', 'Panel Interaction Demos > Search Map expansion')">Search Map expansion</a></li>
+			<li><a href="javascript:contentChange('panelExpand', 'Panel Interaction Demos > Panel expansion')">Panel expansion</a></li>
+		</ul>
+	</ul>
+
+</div>
+
+
+<div id="breadcrumbs">
+</div>
+
+<div id="content">
+	<!-- content is placed here by the contentChange() javascript function -->
+</div>
+
+
+
+<!-- individual contents (as <div>s) ----------------------------------------------------------------------- -->
+
+<!-- Pixel-Perfect Mockups -->
+
+<div id="ppDashboard" style="display: none">
+	<div class="imgWrapper">
+		<img src="pixel-perfect mockups\Dashboard.png" alt=""/>
+	</div>
+</div>
+
+<div id="ppFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="pixel-perfect mockups\Facepage.png" alt="Pixel-Perfect Facepage" />
+	</div>
+</div>
+
+<div id="ppRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="pixel-perfect mockups\Related.png" alt=""/>
+	</div>
+</div>
+
+<div id="ppStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="pixel-perfect mockups\Status.png" alt=""/>
+	</div>
+</div>
+
+
+<!-- Wireframes -->
+
+
+<!-- Resource Mockups -->
+
+
+<!-- 	Collection -->
+
+<div id="collectionFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Collection Facepage.png" alt=""/>
+	</div>
+</div>
+
+<div id="collectionRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Collection Related.png" alt="" />
+	</div>
+</div>
+
+<div id="collectionStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Collection Status.png" alt="" />
+	</div>
+</div>
+
+<!-- 	Observatory -->
+
+<div id="observatoryFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Observatory Facepage.png" alt="" />
+	</div>
+</div>
+
+<div id="observatoryRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Observatory Related.png" alt="" />
+	</div>
+</div>
+
+<div id="observatoryStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Observatory Status.png" alt="" />
+	</div>
+</div>
+
+
+<!-- 	Platform (mooring) -->
+
+<div id="platformMFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Platform (mooring) Facepage.png" alt="Platform Facepage" />
+	</div>
+</div>
+
+<div id="platformMRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Platform (mooring) Related.png" alt="Platform Related" />
+	</div>
+</div>
+
+<div id="platformMStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Platform (mooring) Status.png" alt="Platform Status" />
+	</div>
+</div>
+
+
+<!-- 	Platform (glider) -->
+
+<div id="platformGFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Platform (glider) Facepage.png" alt="" />
+	</div>
+</div>
+
+<div id="platformGRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Platform (glider) Related.png" alt="" />
+	</div>
+</div>
+
+<div id="platformGStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Platform (glider) Status.png" alt="" />
+	</div>
+</div>
+
+
+<!-- 	Instrument -->
+
+<div id="instrumentFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Instrument Facepage.png" alt="Instrument Facepage" />
+	</div>
+</div>
+
+<div id="instrumentRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Instrument Related.png" alt="" />
+	</div>
+</div>
+
+<div id="instrumentStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="resource mockups\Instrument Status.png" alt="" />
+	</div>
+</div>
+
+
+<!-- Custom Views -->
+
+<div id="customViewDrillDown" style="display: none">
+	<div class="imgWrapper">
+		<img src="custom views\Chart Drill-Down.png" alt="" />
+	</div>
+</div>
+
+<div id="customViewCommand" style="display: none">
+	<div class="imgWrapper">
+		<img src="custom views\Platform Command.png" alt="" />
+	</div>
+</div>
+
+<div id="customViewDirectCommand" style="display: none">
+	<div class="imgWrapper">
+		<img src="custom views\Platform Direct Command.png" alt="" />
+	</div>
+</div>
+
+
+<!-- Panel Interaction Demos -->
+
+<div id="dragNDrop" style="display: none">
+	<div class="videoWrapper">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
+			<param name="movie" value="panel interaction demos\Drag and Drop.swf" />
+			<param name="quality" value="high" />
+			<param name="scale" value=="showall" />
+			<embed src="panel interaction demos\Drag and Drop.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+		</object>
+	</div>
+	<div class="explanation">
+		Drag and drop the "Dashboard" tab among the tab sets
+	</div>
+</div>
+
+<div id="filterSpec" style="display: none">
+	<div class="explanation">
+		Click the "Filter" checkbox to display filter criteria
+	</div>
+	<div class="videoWrapper">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
+			<param name="movie" value="panel interaction demos\Filters.swf" />
+			<param name="quality" value="high" />
+			<param name="scale" value=="showall" />
+			<embed src="panel interaction demos\Filters.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+		</object>
+	</div>
+</div>
+
+<div id="splitTables" style="display: none">
+	<div class="explanation">
+		Explanatory text
+	</div>
+	<div class="videoWrapper">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
+			<param name="movie" value="panel interaction demos\Platform Status Detail Views.swf" />
+			<param name="quality" value="high" />
+			<param name="scale" value=="showall" />
+			<embed src="panel interaction demos\Platform Status Detail Views.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+		</object>
+	</div>
+</div>
+
+<div id="mapExpand" style="display: none">
+	<div class="explanation">
+		Click and drag on the Search Map (upper left) to expand it
+	</div>
+	<div class="videoWrapper">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
+			<param name="movie" value="panel interaction demos\Search Map Expand.swf" />
+			<param name="quality" value="high" />
+			<param name="scale" value=="showall" />
+			<embed src="panel interaction demos\Search Map Expand.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+		</object>
+	</div>
+</div>
+
+<div id="panelExpand" style="display: none">
+	<div class="explanation">
+		Explanatory text
+	</div>
+	<div class="videoWrapper">
+		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
+			<param name="movie" value="panel interaction demos\Panel Expand.swf" />
+			<param name="quality" value="high" />
+			<param name="scale" value=="showall" />
+			<embed src="panel interaction demos\Panel Expand.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+		</object>
+	</div>
+</div>
+
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
