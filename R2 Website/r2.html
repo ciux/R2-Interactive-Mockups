@@ -12,24 +12,24 @@ CSS comments are C-like: /* and */
 <style type="text/css" media="screen">
 
 body {
-  background-color:#eaeaea;
-  font-family: verdana,helvetica;
-  font-size: 12px;
+	background-color:#eaeaea;
+	font-family: verdana,helvetica;
+	font-size: 12px;
 }
 
 #banner {
-  background-color:#ffffff;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:60px;
-  margin:0 auto;
-  border:2px solid;
-  z-index:1;
+	background-color:#ffffff;
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:60px;
+	margin:0 auto;
+	border:2px solid;
+	z-index:1;
 }
 
-.logo {
+#logo {
     position:absolute;
     width:800;
     height:70;
@@ -37,23 +37,38 @@ body {
     left:5;
 }
 
-#toc {
-  position:absolute;
-  top:63;
-  left:0;
-  height:90%;
-  width:270;
-  padding-top: 10;
+#navigation {
+	position:absolute;
+	top:63;
+	left:0;
+	height:90%;
+	width:270;
+	padding-top: 10;
 }
 
-#toc ul {
+.navHeader {
+	font-weight: bold;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+/*	font-weight: bold; */
+	color: #062f79;
+}
+a:hover, a:active {
+	text-decoration: none;
+	color: #fafaff;
+	background-color: #065fa9;
+}
+
+ul {
 	list-style: none;
 	margin-left: 0;
 	padding-left: .75em;
 	text-indent: 0em;
 }
 
-#table {
+table {
 	margin-top:2;
 	margin-left:10;
 	border: none;
@@ -78,46 +93,90 @@ td {
 	border: 1px solid #909090;
 }
 
+.checkmark {
+	border: none;
+	color: #065fa9;
+	width: 100%;
+	background: transparent url(blue-check-mark.png) no-repeat center;
+	background-size: 40% 100%;
+/*
+	font-weight: bold;
+	text-decoration: none;
+	vertical-align: middle;
+*/
+}
+.checkmark:hover, checkmark:active {
+	background: #065fa9 url(white-check-mark.png) no-repeat center;
+	color: #ffffff;
+}
+
+.noCheckmark {
+	border: none;
+	width: 100%;
+	background-color: #ffffff;
+}
+.noCheckmark:hover, noCheckmark:active {
+	background-color: #065fa9;
+}
+
+
 #breadcrumbs {
 	position:absolute;
 	top:66;
 	left:271;
 	height: 21;
-	width: 77.6%;
 	padding-top: 2;
-	padding-left: 10;
+	padding-left: 5;
 	font-weight: bold;
+	background-color: #eaeaea;
+/*
+	width: 77.6%;
 	background-color: #777777;
 	color: white;
+*/
 }
 
 .explanation {
-	height: 50;
-	padding-top: 10;
+	height:auto;
+	padding-top: 5;
 	padding-left: 5;
-	font-size: 14px;
+	padding-bottom: 5;
+	font-size: 11px;
 	background-color: #ffffcc;
 	border: 1px solid gray;
 }
 
 #content {
-  position:absolute;
-  top:80;
-  left:271;
-  height:90%;
-  width:78.4%;
-  margin:5 auto;
-  padding:0;
-  overflow:auto;
+	position:absolute;
+	top:80;
+	left:271;
+	height:90%;
+	width:78.4%;
+	margin:5 auto;
+	padding:0;
+	overflow:auto;
 }
 
 /*<!--------------------------------------------------------------------------------------------------------------------
-The "videowrapper" bit here ensures that the embedded flash files (*.swf) scale appropriately to the size of their div
-container.  See: http://webdesignerwall.com/tutorials/css-elastic-videos.
+The "imgWrapper" and "videoWrapper" bits here ensure that the images and embedded flash files scale appropriately to the
+size of their div container.  (See: http://webdesignerwall.com/tutorials/css-elastic-videos.)
 
 NOTE that if you produce your flash content with Flash Catalyst your swf files will NOT scale, but will remain fixed
 size (even if you set them internally to 'resize').
 ------------------------------------------------------------------------------------------------------------------------>*/
+
+.imgWrapper {
+	position: relative;
+	padding-bottom: 74%;
+	height: 0;
+}
+.imgWrapper img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	overflow: auto;
+}
 
 .videoWrapper {
  	position: relative;
@@ -134,47 +193,6 @@ size (even if you set them internally to 'resize').
  	left: 0;
  	width: 100%;
  	height: 100%;
-}
-
-/*<!-- Also wrapped the image files, but not sure it's necessary -->*/
-
-.imgWrapper {
-  position: relative;
-  padding-bottom: 74%;
-  height: 0;
-}
-.imgWrapper img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  overflow: auto;
-}
-
-a:link, a:visited {
-	text-decoration: none;
-	font-weight: bold;
-	color: #065fa9;
-}
-a:hover, a:active {
-	text-decoration: none;
-	color: #eaeaea;
-	background-color: #065fa9;
-}
-
-.button {
-   border: none;
-   background: #ffffff;
-   color: #065fa9;
-   width: 100%;
-   font-size: 10px;
-   font-weight: bold;
-   text-decoration: none;
-   vertical-align: middle;
-}
-.button:hover, button:active{
-   background: #065fa9;
-   color: #ffffff;
 }
 
 
@@ -200,17 +218,26 @@ function contentChange(divId, bc){
 <body onLoad="contentChange('ppFacepage', 'Pixel-Perfect Mockups > Facepage')">
 
 
+<!-- banner -->
 <div id="banner">
-   <div class="logo">
+   <div id="logo">
      <img alt="Ocean Observatories Initiative" src="header.png"/>
    </div>
 </div>
 
 
-<div id="toc">
+<!-- navigation menu -->
+<div id="navigation">
 
 	<ul>
-		<li>Pixel-Perfect Mockups</li>
+		<li class="navHeader">Workflows</li>
+		<ul>
+			<li>??</li>
+		</ul>
+	</ul>
+
+	<ul>
+		<li class="navHeader">Pixel-Perfect Mockups</li>
 		<ul>
  			<li><a href="javascript:contentChange('ppDashboard', 'Pixel-Perfect Mockups > Dashboard')">Dashboard</a></li>
 			<li><a href="javascript:contentChange('ppFacepage', 'Pixel-Perfect Mockups > Facepage')">Facepage</a></li>
@@ -220,14 +247,7 @@ function contentChange(divId, bc){
 	</ul>
 
 	<ul>
-		<li>Wireframes</li>
-		<ul>
-			<li>??</a></li>
-		</ul>
-	</ul>
-
-	<ul>
-		<li>Resource Mockups</li>
+		<li class="navHeader">Low-fidelity Mockups</li>
 		<table id="table">
 			<tr>
 				<th class="hdrRow">Facepage</th>
@@ -235,40 +255,46 @@ function contentChange(divId, bc){
 				<th class="hdrRow">Status</th>
 			</tr>
 			<tr>
-				<td><button class="button" onclick="contentChange('collectionFacepage', 'Resource Mockups > Collection > Facepage')">CF</button></td>
-				<td><button class="button" onclick="contentChange('collectionRelated', 'Resource Mockups > Collection > Related Resources')">CR</button></td>
-				<td><button class="button" onclick="contentChange('collectionStatus', 'Resource Mockups > Collection > Status')">CS</button></td>
+				<td><button class="noCheckmark" ></button></td>
+				<td><button class="noCheckmark" ></button></td>
+				<td><button class="noCheckmark" ></button></td>
+				<th class="hdrCol">Wireframes</th>
+			</tr>
+			<tr>
+				<td><button class="noCheckmark" ></button></td>
+				<td><button class="noCheckmark" ></button></td>
+				<td><button class="noCheckmark" ></button></td>
 				<th class="hdrCol">Collection</th>
 			</tr>
 			<tr>
-				<td><button class="button" onclick="contentChange('observatoryFacepage', 'Resource Mockups > Observatory > Facepage')">OF</button></td>
-				<td><button class="button" onclick="contentChange('observatoryRelated', 'Resource Mockups > Observatory > Related Resources')">OR</button></td>
-				<td><button class="button" onclick="contentChange('observatoryStatus', 'Resource Mockups > Observatory > Status')">OS</button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryFacepage', 'Resource Mockups > Observatory > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryRelated', 'Resource Mockups > Observatory > Related Resources')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryStatus', 'Resource Mockups > Observatory > Status')"></button></td>
 				<th class="hdrCol">Observatory</th>
 			</tr>
 			<tr>
-				<td><button class="button" onclick="contentChange('platformMFacepage', 'Resource Mockups > Platform (mooring) > Facepage')">PmF</button></td>
-				<td><button class="button" onclick="contentChange('platformMRelated', 'Resource Mockups > Platform (mooring) > Related Resources')">PmR</button></td>
-				<td><button class="button" onclick="contentChange('platformMStatus', 'Resource Mockups > Platform (mooring) > Status')">PmS</button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMFacepage', 'Resource Mockups > Platform (mooring) > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMRelated', 'Resource Mockups > Platform (mooring) > Related Resources')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMStatus', 'Resource Mockups > Platform (mooring) > Status')"></button></td>
 				<th class="hdrCol">Platform (mooring)</th>
 			</tr>
 			<tr>
-				<td><button class="button" onclick="contentChange('platformGFacepage', 'Resource Mockups > Platform (glider) > Facepage')">PgF</button></td>
-				<td><button class="button" onclick="contentChange('platformGRelated', 'Resource Mockups > Platform (glider) > Related Resources')">PgR</button></td>
-				<td><button class="button" onclick="contentChange('platformGStatus', 'Resource Mockups > Platform (glider) > Status')">PgS</button></td>
+				<td><button class="noCheckmark" ></button></td>
+				<td><button class="noCheckmark" ></button></td>
+				<td><button class="noCheckmark" ></button></td>
 				<th class="hdrCol">Platform (glider)</th>
 			</tr>
 			<tr>
-				<td><button class="button" onclick="contentChange('instrumentFacepage', 'Resource Mockups > Instrument > Facepage')">IF</button></td>
-				<td><button class="button" onclick="contentChange('instrumentRelated', 'Resource Mockups > Instrument > Related Resources')">IR</button></td>
-				<td><button class="button" onclick="contentChange('instrumentStatus', 'Resource Mockups > Instrument > Status')">IS</button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentFacepage', 'Resource Mockups > Instrument > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentRelated', 'Resource Mockups > Instrument > Related Resources')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentStatus', 'Resource Mockups > Instrument > Status')"></button></td>
 				<th class="hdrCol">Instrument</th>
 			</tr>
 		</table>
 	</ul>
-<!-- <a href="javascript:contentChange('')"> -->
+
 	<ul>
-		<li>Custom Views</li>
+		<li class="navHeader">Custom Views</li>
 		<ul>
 			<li><a href="javascript:contentChange('customViewDrillDown', 'Custom Views > Chart Drill-Down')">Chart Drill-Down</a></li>
 			<li><a href="javascript:contentChange('customViewCommand', 'Custom Views > Platform Command')">Platform Command</a></li>
@@ -277,29 +303,34 @@ function contentChange(divId, bc){
 	</ul>
 
 	<ul>
-		<li>Panel Interaction Demos</li>
+		<li class="navHeader">Panel Interaction Demos</li>
 		<ul>
 			<li><a href="javascript:contentChange('dragNDrop', 'Panel Interaction Demos > Dashboard drag and drop')">Dashboard drag and drop</a></li>
-			<li><a href="javascript:contentChange('filterSpec', 'Panel Interaction Demos > Filtering')">Filtering</a></li>
+			<li><a href="javascript:contentChange('filtering', 'Panel Interaction Demos > Filtering')">Filtering</a></li>
 			<li><a href="javascript:contentChange('splitTables', 'Panel Interaction Demos > Platform Status detail views')">Platform Status detail views</a></li>
 			<li><a href="javascript:contentChange('mapExpand', 'Panel Interaction Demos > Search Map expansion')">Search Map expansion</a></li>
-			<li><a href="javascript:contentChange('panelExpand', 'Panel Interaction Demos > Panel expansion')">Panel expansion</a></li>
+			<li><a href="javascript:contentChange('panelExpand', 'Panel Interaction Demos > Panel expansion')">Panel Editing and Panel Change Views</a></li>
 		</ul>
 	</ul>
 
 </div>
 
-
+<!-- breadcrumbs ticker -->
 <div id="breadcrumbs">
+	<!-- breadcrumb text is placed here by the contentChange() javascript function -->
 </div>
 
+<!-- content display area -->
 <div id="content">
 	<!-- content is placed here by the contentChange() javascript function -->
 </div>
 
 
 
-<!-- individual contents (as <div>s) ----------------------------------------------------------------------- -->
+<!-- content ----------------------------------------------------------------------- -->
+
+<!-- <script>document.write(assetsUrl)</script> -->
+
 
 <!-- Pixel-Perfect Mockups -->
 
@@ -331,26 +362,26 @@ function contentChange(divId, bc){
 <!-- Wireframes -->
 
 
-<!-- Resource Mockups -->
+<!-- Low-fidelity  Mockups -->
 
 
 <!-- 	Collection -->
 
 <div id="collectionFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Collection Facepage.png" alt=""/>
+		<img src="low-fidelity mockups\Collection Facepage.png" alt=""/>
 	</div>
 </div>
 
 <div id="collectionRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Collection Related.png" alt="" />
+		<img src="low-fidelity mockups\Collection Related.png" alt="" />
 	</div>
 </div>
 
 <div id="collectionStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Collection Status.png" alt="" />
+		<img src="low-fidelity mockups\Collection Status.png" alt="" />
 	</div>
 </div>
 
@@ -358,19 +389,19 @@ function contentChange(divId, bc){
 
 <div id="observatoryFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Observatory Facepage.png" alt="" />
+		<img src="low-fidelity mockups\Observatory Facepage.png" alt="" />
 	</div>
 </div>
 
 <div id="observatoryRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Observatory Related.png" alt="" />
+		<img src="low-fidelity mockups\Observatory Related.png" alt="" />
 	</div>
 </div>
 
 <div id="observatoryStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Observatory Status.png" alt="" />
+		<img src="low-fidelity mockups\Observatory Status.png" alt="" />
 	</div>
 </div>
 
@@ -379,19 +410,19 @@ function contentChange(divId, bc){
 
 <div id="platformMFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Platform (mooring) Facepage.png" alt="Platform Facepage" />
+		<img src="low-fidelity mockups\Platform (mooring) Facepage.png" alt="Platform Facepage" />
 	</div>
 </div>
 
 <div id="platformMRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Platform (mooring) Related.png" alt="Platform Related" />
+		<img src="low-fidelity mockups\Platform (mooring) Related.png" alt="Platform Related" />
 	</div>
 </div>
 
 <div id="platformMStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Platform (mooring) Status.png" alt="Platform Status" />
+		<img src="low-fidelity mockups\Platform (mooring) Status.png" alt="Platform Status" />
 	</div>
 </div>
 
@@ -400,19 +431,19 @@ function contentChange(divId, bc){
 
 <div id="platformGFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Platform (glider) Facepage.png" alt="" />
+		<img src="low-fidelity mockups\Platform (glider) Facepage.png" alt="" />
 	</div>
 </div>
 
 <div id="platformGRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Platform (glider) Related.png" alt="" />
+		<img src="low-fidelity mockups\Platform (glider) Related.png" alt="" />
 	</div>
 </div>
 
 <div id="platformGStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Platform (glider) Status.png" alt="" />
+		<img src="low-fidelity mockups\Platform (glider) Status.png" alt="" />
 	</div>
 </div>
 
@@ -421,19 +452,19 @@ function contentChange(divId, bc){
 
 <div id="instrumentFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Instrument Facepage.png" alt="Instrument Facepage" />
+		<img src="low-fidelity mockups\Instrument Facepage.png" alt="Instrument Facepage" />
 	</div>
 </div>
 
 <div id="instrumentRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Instrument Related.png" alt="" />
+		<img src="low-fidelity mockups\Instrument Related.png" alt="" />
 	</div>
 </div>
 
 <div id="instrumentStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="resource mockups\Instrument Status.png" alt="" />
+		<img src="low-fidelity mockups\Instrument Status.png" alt="" />
 	</div>
 </div>
 
@@ -462,6 +493,10 @@ function contentChange(divId, bc){
 <!-- Panel Interaction Demos -->
 
 <div id="dragNDrop" style="display: none">
+	<div class="explanation">
+		Drag and drop:
+		<p>The Dashboard tab can be moved among tab groups using drag and drop.</p>
+	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
 			<param name="movie" value="panel interaction demos\Drag and Drop.swf" />
@@ -470,34 +505,50 @@ function contentChange(divId, bc){
 			<embed src="panel interaction demos\Drag and Drop.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
-	<div class="explanation">
-		Drag and drop the "Dashboard" tab among the tab sets
-	</div>
 </div>
 
-<div id="filterSpec" style="display: none">
+<div id="filtering" style="display: none">
 	<div class="explanation">
-		Click the "Filter" checkbox to display filter criteria
+		Filtering:
+		<p>To display filter criteria click the "Filter" checkbox (in the bottom right tab labeled "Table").
+		The Plus button adds a new filter, the Minus buttons remove a filter.
+		To turn off filtering, click the Close button, or remove all the filters (using the Minus buttons), or uncheck the "Filter" checkbox.
+		</p>
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
-			<param name="movie" value="panel interaction demos\Filters.swf" />
+			<param name="movie" value="panel interaction demos\Filtering.swf" />
 			<param name="quality" value="high" />
 			<param name="scale" value=="showall" />
-			<embed src="panel interaction demos\Filters.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+			<embed src="panel interaction demos\Filtering.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
 </div>
 
 <div id="splitTables" style="display: none">
 	<div class="explanation">
-		Explanatory text
+		Platform Status Detail Views:
+		<p>Sensor number 5 in the Engineering Sensors tab has an issue; to drill-down into the data, open a detail view for the sensor
+		by clicking the gray arrow to the left of the circular red P indicator.  To close the detail view,
+		click the gray arrow again.<br>
+		<br>
+		To change the detail view, click the Panel Controls button in the upper right of the Engineering Sensors tab,
+		then select a view from the drop-down menu.
+		</p>
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
-			<param name="movie" value="panel interaction demos\Platform Status Detail Views.swf" />
-			<param name="quality" value="high" />
-			<param name="scale" value=="showall" />
+				<param name="movie" value="panel interaction demos\Platform Status Detail Views.swf" />
+				<param name="quality" value="high" />
+				<param name="bgcolor" value="#ffffff" />
+				<param name="play" value="true" />
+				<param name="loop" value="true" />
+				<param name="wmode" value="gpu" />
+				<param name="scale" value="showall" />
+				<param name="menu" value="true" />
+				<param name="devicefont" value="false" />
+				<param name="salign" value="" />
+				<param name="allowScriptAccess" value="sameDomain" />
 			<embed src="panel interaction demos\Platform Status Detail Views.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
@@ -519,7 +570,17 @@ function contentChange(divId, bc){
 
 <div id="panelExpand" style="display: none">
 	<div class="explanation">
-		Explanatory text
+		Panel Editing:
+		<p>
+		To edit the Information panel, hover your mouse over it, then click the button that appears in the panel's upper right.
+		To exit edit mode, click the Cancel button.
+		</p>
+		Panel Change Views:
+		<p>
+		To change the view of the Documentation subpanel of Panel D, hover your mouse over the subpanel,
+		then click the button that appears and click again on the drop-down menu (for this demo it doesn't matter which menu item you choose).
+		The subpanel will change to a detail view.  To close the detail view, click the Cancel button.
+		</p>
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
