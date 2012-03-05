@@ -95,15 +95,9 @@ td {
 
 .checkmark {
 	border: none;
-	color: #065fa9;
 	width: 100%;
 	background: transparent url(blue-check-mark.png) no-repeat center;
 	background-size: 40% 100%;
-/*
-	font-weight: bold;
-	text-decoration: none;
-	vertical-align: middle;
-*/
 }
 .checkmark:hover, checkmark:active {
 	background: #065fa9 url(white-check-mark.png) no-repeat center;
@@ -201,7 +195,7 @@ size (even if you set them internally to 'resize').
 
 <!-- JAVASCRIPT -->
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script type="text/javascript" src="./http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <script type="text/javascript">
 function contentChange(divId, bc){
@@ -267,15 +261,15 @@ function contentChange(divId, bc){
 				<th class="hdrCol">Collection</th>
 			</tr>
 			<tr>
-				<td><button class="checkmark" onclick="contentChange('observatoryFacepage', 'Resource Mockups > Observatory > Facepage')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('observatoryRelated', 'Resource Mockups > Observatory > Related Resources')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('observatoryStatus', 'Resource Mockups > Observatory > Status')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryFacepage', 'Low-fidelity Mockups > Observatory > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryRelated', 'Low-fidelity Mockups > Observatory > Related Resources')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryStatus', 'Low-fidelity Mockups > Observatory > Status')"></button></td>
 				<th class="hdrCol">Observatory</th>
 			</tr>
 			<tr>
-				<td><button class="checkmark" onclick="contentChange('platformMFacepage', 'Resource Mockups > Platform (mooring) > Facepage')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('platformMRelated', 'Resource Mockups > Platform (mooring) > Related Resources')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('platformMStatus', 'Resource Mockups > Platform (mooring) > Status')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMFacepage', 'Low-fidelity Mockups > Platform (mooring) > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMRelated', 'Low-fidelity Mockups > Platform (mooring) > Related Resources')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMStatus', 'Low-fidelity Mockups > Platform (mooring) > Status')"></button></td>
 				<th class="hdrCol">Platform (mooring)</th>
 			</tr>
 			<tr>
@@ -285,9 +279,9 @@ function contentChange(divId, bc){
 				<th class="hdrCol">Platform (glider)</th>
 			</tr>
 			<tr>
-				<td><button class="checkmark" onclick="contentChange('instrumentFacepage', 'Resource Mockups > Instrument > Facepage')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('instrumentRelated', 'Resource Mockups > Instrument > Related Resources')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('instrumentStatus', 'Resource Mockups > Instrument > Status')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentFacepage', 'Low-fidelity Mockups > Instrument > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentRelated', 'Low-fidelity Mockups > Instrument > Related Resources')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentStatus', 'Low-fidelity Mockups > Instrument > Status')"></button></td>
 				<th class="hdrCol">Instrument</th>
 			</tr>
 		</table>
@@ -309,7 +303,7 @@ function contentChange(divId, bc){
 			<li><a href="javascript:contentChange('filtering', 'Panel Interaction Demos > Filtering')">Filtering</a></li>
 			<li><a href="javascript:contentChange('splitTables', 'Panel Interaction Demos > Platform Status detail views')">Platform Status detail views</a></li>
 			<li><a href="javascript:contentChange('mapExpand', 'Panel Interaction Demos > Search Map expansion')">Search Map expansion</a></li>
-			<li><a href="javascript:contentChange('panelExpand', 'Panel Interaction Demos > Panel expansion')">Panel Editing and Panel Change Views</a></li>
+			<li><a href="javascript:contentChange('panelEditing', 'Panel Interaction Demos > Panel expansion')">Panel Editing and Panel Change Views</a></li>
 		</ul>
 	</ul>
 
@@ -336,25 +330,25 @@ function contentChange(divId, bc){
 
 <div id="ppDashboard" style="display: none">
 	<div class="imgWrapper">
-		<img src="pixel-perfect mockups\Dashboard.png" alt=""/>
+		<img src="Pixel-Perfect Mockups/Dashboard.png" alt=""/>
 	</div>
 </div>
 
 <div id="ppFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="pixel-perfect mockups\Facepage.png" alt="Pixel-Perfect Facepage" />
+		<img src="Pixel-Perfect Mockups/Facepage.png" alt="Pixel-Perfect Facepage" />
 	</div>
 </div>
 
 <div id="ppRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="pixel-perfect mockups\Related.png" alt=""/>
+		<img src="Pixel-Perfect Mockups/Related.png" alt=""/>
 	</div>
 </div>
 
 <div id="ppStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="pixel-perfect mockups\Status.png" alt=""/>
+		<img src="Pixel-Perfect Mockups/Status.png" alt=""/>
 	</div>
 </div>
 
@@ -369,19 +363,19 @@ function contentChange(divId, bc){
 
 <div id="collectionFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Collection Facepage.png" alt=""/>
+		<img src="Low-fidelity Mockups\Collection Facepage.png" alt=""/>
 	</div>
 </div>
 
 <div id="collectionRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Collection Related.png" alt="" />
+		<img src="Low-fidelity Mockups\Collection Related.png" alt="" />
 	</div>
 </div>
 
 <div id="collectionStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Collection Status.png" alt="" />
+		<img src="Low-fidelity Mockups\Collection Status.png" alt="" />
 	</div>
 </div>
 
@@ -389,19 +383,19 @@ function contentChange(divId, bc){
 
 <div id="observatoryFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Observatory Facepage.png" alt="" />
+		<img src="Low-fidelity Mockups\Observatory Facepage.png" alt="" />
 	</div>
 </div>
 
 <div id="observatoryRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Observatory Related.png" alt="" />
+		<img src="Low-fidelity Mockups\Observatory Related.png" alt="" />
 	</div>
 </div>
 
 <div id="observatoryStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Observatory Status.png" alt="" />
+		<img src="Low-fidelity Mockups\Observatory Status.png" alt="" />
 	</div>
 </div>
 
@@ -410,19 +404,19 @@ function contentChange(divId, bc){
 
 <div id="platformMFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Platform (mooring) Facepage.png" alt="Platform Facepage" />
+		<img src="Low-fidelity Mockups\Platform (mooring) Facepage.png" alt="Platform Facepage" />
 	</div>
 </div>
 
 <div id="platformMRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Platform (mooring) Related.png" alt="Platform Related" />
+		<img src="Low-fidelity Mockups\Platform (mooring) Related.png" alt="Platform Related" />
 	</div>
 </div>
 
 <div id="platformMStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Platform (mooring) Status.png" alt="Platform Status" />
+		<img src="Low-fidelity Mockups\Platform (mooring) Status.png" alt="Platform Status" />
 	</div>
 </div>
 
@@ -431,19 +425,19 @@ function contentChange(divId, bc){
 
 <div id="platformGFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Platform (glider) Facepage.png" alt="" />
+		<img src="Low-fidelity Mockups\Platform (glider) Facepage.png" alt="" />
 	</div>
 </div>
 
 <div id="platformGRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Platform (glider) Related.png" alt="" />
+		<img src="Low-fidelity Mockups\Platform (glider) Related.png" alt="" />
 	</div>
 </div>
 
 <div id="platformGStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Platform (glider) Status.png" alt="" />
+		<img src="Low-fidelity Mockups\Platform (glider) Status.png" alt="" />
 	</div>
 </div>
 
@@ -452,19 +446,19 @@ function contentChange(divId, bc){
 
 <div id="instrumentFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Instrument Facepage.png" alt="Instrument Facepage" />
+		<img src="Low-fidelity Mockups\Instrument Facepage.png" alt="Instrument Facepage" />
 	</div>
 </div>
 
 <div id="instrumentRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Instrument Related.png" alt="" />
+		<img src="Low-fidelity Mockups\Instrument Related.png" alt="" />
 	</div>
 </div>
 
 <div id="instrumentStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="low-fidelity mockups\Instrument Status.png" alt="" />
+		<img src="Low-fidelity Mockups\Instrument Status.png" alt="" />
 	</div>
 </div>
 
@@ -473,19 +467,19 @@ function contentChange(divId, bc){
 
 <div id="customViewDrillDown" style="display: none">
 	<div class="imgWrapper">
-		<img src="custom views\Chart Drill-Down.png" alt="" />
+		<img src="Custom Views\Chart Drill-Down.png" alt="" />
 	</div>
 </div>
 
 <div id="customViewCommand" style="display: none">
 	<div class="imgWrapper">
-		<img src="custom views\Platform Command.png" alt="" />
+		<img src="Custom Views\Platform Command.png" alt="" />
 	</div>
 </div>
 
 <div id="customViewDirectCommand" style="display: none">
 	<div class="imgWrapper">
-		<img src="custom views\Platform Direct Command.png" alt="" />
+		<img src="Custom Views\Platform Direct Command.png" alt="" />
 	</div>
 </div>
 
@@ -499,10 +493,10 @@ function contentChange(divId, bc){
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
-			<param name="movie" value="panel interaction demos\Drag and Drop.swf" />
+			<param name="movie" value="Panel Interaction Demos\Drag and Drop.swf" />
 			<param name="quality" value="high" />
 			<param name="scale" value=="showall" />
-			<embed src="panel interaction demos\Drag and Drop.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+			<embed src="Panel Interaction Demos\Drag and Drop.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
 </div>
@@ -517,10 +511,10 @@ function contentChange(divId, bc){
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
-			<param name="movie" value="panel interaction demos\Filtering.swf" />
+			<param name="movie" value="Panel Interaction Demos\Filtering.swf" />
 			<param name="quality" value="high" />
 			<param name="scale" value=="showall" />
-			<embed src="panel interaction demos\Filtering.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+			<embed src="Panel Interaction Demos\Filtering.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
 </div>
@@ -538,7 +532,7 @@ function contentChange(divId, bc){
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
-				<param name="movie" value="panel interaction demos\Platform Status Detail Views.swf" />
+				<param name="movie" value="Panel Interaction Demos\Platform Status Detail Views.swf" />
 				<param name="quality" value="high" />
 				<param name="bgcolor" value="#ffffff" />
 				<param name="play" value="true" />
@@ -549,7 +543,7 @@ function contentChange(divId, bc){
 				<param name="devicefont" value="false" />
 				<param name="salign" value="" />
 				<param name="allowScriptAccess" value="sameDomain" />
-			<embed src="panel interaction demos\Platform Status Detail Views.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+			<embed src="Panel Interaction Demos\Platform Status Detail Views.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
 </div>
@@ -560,15 +554,15 @@ function contentChange(divId, bc){
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
-			<param name="movie" value="panel interaction demos\Search Map Expand.swf" />
+			<param name="movie" value="Panel Interaction Demos\Search Map Expand.swf" />
 			<param name="quality" value="high" />
 			<param name="scale" value=="showall" />
-			<embed src="panel interaction demos\Search Map Expand.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+			<embed src="Panel Interaction Demos\Search Map Expand.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
 </div>
 
-<div id="panelExpand" style="display: none">
+<div id="panelEditing" style="display: none">
 	<div class="explanation">
 		Panel Editing:
 		<p>
@@ -584,10 +578,10 @@ function contentChange(divId, bc){
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
-			<param name="movie" value="panel interaction demos\Panel Expand.swf" />
+			<param name="movie" value="Panel Interaction Demos\Panel Editng and Panel Change Views.swf" />
 			<param name="quality" value="high" />
 			<param name="scale" value=="showall" />
-			<embed src="panel interaction demos\Panel Expand.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
+			<embed src="Panel Interaction Demos\Panel Editng and Panel Change Views.swf" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash"></embed>
 		</object>
 	</div>
 </div>
