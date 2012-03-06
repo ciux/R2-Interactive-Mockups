@@ -13,10 +13,11 @@ CSS comments are C-like: /* and */
 
 body {
 	background-color:#eaeaea;
-	font-family: verdana,helvetica;
+	font-family: arial, palatino linotype;
 	font-size: 12px;
 }
 
+/*-----------------------------------------------*/
 #banner {
 	background-color:#ffffff;
 	position:fixed;
@@ -37,6 +38,7 @@ body {
     left:5;
 }
 
+/*-----------------------------------------------*/
 #navigation {
 	position:absolute;
 	top:63;
@@ -44,21 +46,33 @@ body {
 	height:90%;
 	width:270;
 	padding-top: 10;
+	overflow:auto;
 }
 
 .navHeader {
-	font-weight: bold;
+/*	font-weight: bold;	*/
+	text-decoration:underline;
 }
 
 a:link, a:visited {
 	text-decoration: none;
-/*	font-weight: bold; */
-	color: #062f79;
+	color: #000000;
+/*	color: #111111; */
+/*	color: #062f79; */
 }
 a:hover, a:active {
 	text-decoration: none;
 	color: #fafaff;
 	background-color: #065fa9;
+}
+
+.noContent:link, .noContent:visited {
+	color: #888888;
+}
+.noContent:hover, .noContent:active {
+	text-decoration: none;
+	color: #555555;
+	background-color: #d0d0d0;
 }
 
 ul {
@@ -69,12 +83,14 @@ ul {
 }
 
 table {
-	margin-top:2;
+	margin-top:0;
 	margin-left:10;
 	border: none;
 	border-collapse:collapse;
-	font-size: 9px;
+	font-size: 10px;
 	text-align:center;
+	empty-cells: hide;
+	table-layout:fixed;
 }
 th {
 	border: none;
@@ -82,22 +98,36 @@ th {
 th.hdrRow {
 	padding:1;
 	width:45;
+	height:20px;
+	vertical-align:bottom;
+/*
+	writing-mode: tb-rl;
+	-webkit-transform:rotate(-90deg);
+	-moz-transform:rotate(-90deg);
+	-o-transform: rotate(-90deg);
+	-moz-transform-origin: 50% 50%;
+	-webkit-transform-origin: 50% 50%;
+	white-space:nowrap;
+	bottom:0;
+*/
 }
 th.hdrCol {
-	padding:2;
-	heigth:35;
+	padding-right:2;
 	text-align:left;
+	width:60;
+	height:5;
 }
 td {
 	background-color: #ffffff;
 	border: 1px solid #909090;
+	width:50;
 }
 
 .checkmark {
 	border: none;
 	width: 100%;
 	background: transparent url(blue-check-mark.png) no-repeat center;
-	background-size: 40% 100%;
+	background-size: contain;
 }
 .checkmark:hover, checkmark:active {
 	background: #065fa9 url(white-check-mark.png) no-repeat center;
@@ -110,19 +140,33 @@ td {
 	background-color: #ffffff;
 }
 .noCheckmark:hover, noCheckmark:active {
-	background-color: #065fa9;
+/*	background-color: #065fa9; */
+	background-color: #e1e1e1;
 }
 
+/*-----------------------------------------------*/
+#content {
+	position:absolute;
+	top:87;
+	left:271;
+	height:88%;
+	width:78.4%;
+	margin:5 auto;
+	padding:2;
+
+}
 
 #breadcrumbs {
 	position:absolute;
 	top:66;
 	left:271;
 	height: 21;
+	width:78%;
 	padding-top: 2;
 	padding-left: 5;
 	font-weight: bold;
 	background-color: #eaeaea;
+	border-bottom:1px double #000000;
 /*
 	width: 77.6%;
 	background-color: #777777;
@@ -130,7 +174,7 @@ td {
 */
 }
 
-.explanation {
+.directions {
 	height:auto;
 	padding-top: 5;
 	padding-left: 5;
@@ -140,16 +184,6 @@ td {
 	border: 1px solid gray;
 }
 
-#content {
-	position:absolute;
-	top:80;
-	left:271;
-	height:90%;
-	width:78.4%;
-	margin:5 auto;
-	padding:0;
-	overflow:auto;
-}
 
 /*<!--------------------------------------------------------------------------------------------------------------------
 The "imgWrapper" and "videoWrapper" bits here ensure that the images and embedded flash files scale appropriately to the
@@ -202,6 +236,11 @@ function contentChange(divId, bc){
 	document.getElementById('content').innerHTML = document.getElementById(divId).innerHTML;
 	document.getElementById('breadcrumbs').innerHTML = bc;
 }
+function ImgError(source){
+    source.src = "Under Construction.png";
+    source.onerror = "";
+    return true;
+}
 </script>
 
 </head>
@@ -226,86 +265,210 @@ function contentChange(divId, bc){
 	<ul>
 		<li class="navHeader">Workflows</li>
 		<ul>
-			<li>??</li>
+			<li><a class = "noContent">??</a></li>
 		</ul>
+
 	</ul>
 
 	<ul>
 		<li class="navHeader">Pixel-Perfect Mockups</li>
 		<ul>
- 			<li><a href="javascript:contentChange('ppDashboard', 'Pixel-Perfect Mockups > Dashboard')">Dashboard</a></li>
+ 			<li><a class="noContent" href="javascript:contentChange('ppDashboard', 'Pixel-Perfect Mockups > Dashboard')">Dashboard</a></li>
 			<li><a href="javascript:contentChange('ppFacepage', 'Pixel-Perfect Mockups > Facepage')">Facepage</a></li>
-			<li><a href="javascript:contentChange('ppRelated', 'Pixel-Perfect Mockups > Related Resources')">Related Resources Page</a></li>
-			<li><a href="javascript:contentChange('ppStatus', 'Pixel-Perfect Mockups > Status')">Status Page</a></li>
+			<li><a class="noContent" href="javascript:contentChange('ppRelated', 'Pixel-Perfect Mockups > Related Resources')">Related Resources Page</a></li>
+			<li><a class="noContent" href="javascript:contentChange('ppStatus', 'Pixel-Perfect Mockups > Status')">Status Page</a></li>
 		</ul>
-	</ul>
-
-	<ul>
-		<li class="navHeader">Low-fidelity Mockups</li>
-		<table id="table">
-			<tr>
-				<th class="hdrRow">Facepage</th>
-				<th class="hdrRow">Related</th>
-				<th class="hdrRow">Status</th>
-			</tr>
-			<tr>
-				<td><button class="noCheckmark" ></button></td>
-				<td><button class="noCheckmark" ></button></td>
-				<td><button class="noCheckmark" ></button></td>
-				<th class="hdrCol">Wireframes</th>
-			</tr>
-			<tr>
-				<td><button class="noCheckmark" ></button></td>
-				<td><button class="noCheckmark" ></button></td>
-				<td><button class="noCheckmark" ></button></td>
-				<th class="hdrCol">Collection</th>
-			</tr>
-			<tr>
-				<td><button class="checkmark" onclick="contentChange('observatoryFacepage', 'Low-fidelity Mockups > Observatory > Facepage')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('observatoryRelated', 'Low-fidelity Mockups > Observatory > Related Resources')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('observatoryStatus', 'Low-fidelity Mockups > Observatory > Status')"></button></td>
-				<th class="hdrCol">Observatory</th>
-			</tr>
-			<tr>
-				<td><button class="checkmark" onclick="contentChange('platformMFacepage', 'Low-fidelity Mockups > Platform (mooring) > Facepage')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('platformMRelated', 'Low-fidelity Mockups > Platform (mooring) > Related Resources')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('platformMStatus', 'Low-fidelity Mockups > Platform (mooring) > Status')"></button></td>
-				<th class="hdrCol">Platform (mooring)</th>
-			</tr>
-			<tr>
-				<td><button class="noCheckmark" ></button></td>
-				<td><button class="noCheckmark" ></button></td>
-				<td><button class="noCheckmark" ></button></td>
-				<th class="hdrCol">Platform (glider)</th>
-			</tr>
-			<tr>
-				<td><button class="checkmark" onclick="contentChange('instrumentFacepage', 'Low-fidelity Mockups > Instrument > Facepage')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('instrumentRelated', 'Low-fidelity Mockups > Instrument > Related Resources')"></button></td>
-				<td><button class="checkmark" onclick="contentChange('instrumentStatus', 'Low-fidelity Mockups > Instrument > Status')"></button></td>
-				<th class="hdrCol">Instrument</th>
-			</tr>
-		</table>
 	</ul>
 
 	<ul>
 		<li class="navHeader">Custom Views</li>
 		<ul>
-			<li><a href="javascript:contentChange('customViewDrillDown', 'Custom Views > Chart Drill-Down')">Chart Drill-Down</a></li>
-			<li><a href="javascript:contentChange('customViewCommand', 'Custom Views > Platform Command')">Platform Command</a></li>
-			<li><a href="javascript:contentChange('customViewDirectCommand', 'Custom Views > Platform Direct Command')">Platform Direct Command</a></li>
+			<li><a class="noContent" href="javascript:contentChange('customViewDrillDown', 'Custom Views > Chart Drill-Down')">Chart Drill-Down</a></li>
+			<li><a class="noContent" href="javascript:contentChange('customViewCommand', 'Custom Views > Platform Command')">Platform Command</a></li>
+			<li><a class="noContent" href="javascript:contentChange('customViewDirectCommand', 'Custom Views > Platform Direct Command')">Platform Direct Command</a></li>
 		</ul>
 	</ul>
 
 	<ul>
 		<li class="navHeader">Panel Interaction Demos</li>
 		<ul>
-			<li><a href="javascript:contentChange('dragNDrop', 'Panel Interaction Demos > Dashboard drag and drop')">Dashboard drag and drop</a></li>
-			<li><a href="javascript:contentChange('filtering', 'Panel Interaction Demos > Filtering')">Filtering</a></li>
-			<li><a href="javascript:contentChange('splitTables', 'Panel Interaction Demos > Platform Status detail views')">Platform Status detail views</a></li>
-			<li><a href="javascript:contentChange('mapExpand', 'Panel Interaction Demos > Search Map expansion')">Search Map expansion</a></li>
-			<li><a href="javascript:contentChange('panelEditing', 'Panel Interaction Demos > Panel expansion')">Panel Editing and Panel Change Views</a></li>
+			<li><a href="javascript:contentChange('customizeLayout', 'Panel Interaction Demos > Customize Layout')">Customize Layout</a></li>
+			<li><a href="javascript:contentChange('filter', 'Panel Interaction Demos > Filter')">Filter</a></li>
+			<li><a href="javascript:contentChange('embeddedTables', 'Panel Interaction Demos > Embedded Tables')">Embedded Tables</a></li>
+			<li><a href="javascript:contentChange('search', 'Panel Interaction Demos > Search')">Search</a></li>
+			<li><a href="javascript:contentChange('panelEdit', 'Panel Interaction Demos > Panel Edit and Panel Expand')">Panel Edit and Panel Expand</a></li>
 		</ul>
 	</ul>
+
+	<ul style="padding:10;">
+		<li class="navHeader">Panel Types</li>
+		<table id="table">
+			<tr>
+				<th class="hdrCol"></th>
+				<th class="hdrRow">Wireframe</th>
+				<th class="hdrRow">Low- or Hi-Fidelity Mockups</th>
+				<th class="hdrRow">Pixel-Perfect Mockups</th>
+			</tr>
+			<tr>
+				<th class="hdrCol">Attribute Group</th>
+				<td><button class="noCheckmark" onclick="contentChange('attrGroupWireframe', 'Panel Types > Attribute Group > Wireframe')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('attrGroupLowFidelity', 'Panel Types > Attribute Group > Low- or Hi-Fidelity Mockups')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('attrGroupPixelPerfect', 'Panel Types > Attribute Group > Pixel-Perfect Mockups')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Call-out</th>
+				<td><button class="noCheckmark" onclick="contentChange('calloutWireframe', 'Panel Types > Call-out > Wireframe')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('calloutLowFidelity', 'Panel Types > Call-out > Low- or Hi-Fidelity Mockups')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('calloutPixelPerfect', 'Panel Types > Call-out > Pixel-Perfect Mockups')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Chart</th>
+				<td><button class="noCheckmark" onclick="contentChange('chartWireframe', 'Panel Types > Chart > Wireframe')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('chartLowFidelity', 'Panel Types > Chart > Low- or Hi-Fidelity Mockups')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('chartPixelPerfect', 'Panel Types > Chart > Pixel-Perfect Mockups')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Table</th>
+				<td><button class="noCheckmark" onclick="contentChange('tableWireframe', 'Panel Types > Table > Wireframe')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('tableLowFidelity', 'Panel Types > Table > Low- or Hi-Fidelity Mockups')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('tablePixelPerfect', 'Panel Types > Table > Pixel-Perfect Mockups')"></button></td>
+			</tr>
+		</table>
+	</ul>
+
+	<ul style="padding:10;">
+		<li class="navHeader">Low-fidelity Mockups</li>
+
+		<table id="table"><!-- Facepage, Status, Related -->
+			<tr>
+				<th class="hdrCol"></th>
+				<th class="hdrRow">Facepage</th>
+				<th class="hdrRow">Status</th>
+				<th class="hdrRow">Related</th>
+			</tr>
+			<tr>
+				<th class="hdrCol">Wireframe</th>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeFacepage', 'Low-fidelity Mockups > Wireframe > Facepage')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeStatus', 'Low-fidelity Mockups > Wireframe > Status')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeRelated', 'Low-fidelity Mockups > Wireframe > Related')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Collection</th>
+				<td><button class="noCheckmark" onclick="contentChange('collectionFacepage', 'Low-fidelity Mockups > Collection > Facepage')"</button></td>
+				<td><button class="noCheckmark" onclick="contentChange('collectionStatus', 'Low-fidelity Mockups > Collection > Status')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('collectionRelated', 'Low-fidelity Mockups > Collection > Related')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Observatory</th>
+				<td><button class="checkmark" onclick="contentChange('observatoryFacepage', 'Low-fidelity Mockups > Observatory > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryStatus', 'Low-fidelity Mockups > Observatory > Status')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('observatoryRelated', 'Low-fidelity Mockups > Observatory > Related Resources')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Platform (mooring)</th>
+				<td><button class="checkmark" onclick="contentChange('platformMFacepage', 'Low-fidelity Mockups > Platform (mooring) > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMStatus', 'Low-fidelity Mockups > Platform (mooring) > Status')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('platformMRelated', 'Low-fidelity Mockups > Platform (mooring) > Related Resources')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Platform (glider)</th>
+				<td><button class="noCheckmark" onclick="contentChange('platformGFacepage', 'Low-fidelity Mockups > Platform (glider) > Facepage')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformGStatus', 'Low-fidelity Mockups > Platform (glider) > Status')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformGRelated', 'Low-fidelity Mockups > Platform (glider) > Related')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Instrument</th>
+				<td><button class="checkmark" onclick="contentChange('instrumentFacepage', 'Low-fidelity Mockups > Instrument > Facepage')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentStatus', 'Low-fidelity Mockups > Instrument > Status')"></button></td>
+				<td><button class="checkmark" onclick="contentChange('instrumentRelated', 'Low-fidelity Mockups > Instrument > Related Resources')"></button></td>
+			</tr>
+		</table>
+
+		<table id="table"><!-- Drill-Down Detail, Custom, Callout -->
+			<tr>
+				<th class="hdrCol"></th>
+				<th class="hdrRow">Drill-Down Detail</th>
+				<th class="hdrRow">Custom</th>
+				<th class="hdrRow">Callout</th>
+			</tr>
+			<tr>
+				<th class="hdrCol">Wireframe</th>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeDrillDown', 'Low-fidelity Mockups > Wireframe > Drill-Down Detail')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeCustom', 'Low-fidelity Mockups > Wireframe > Custom')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeCallout', 'Low-fidelity Mockups > Wireframe > Callout')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Collection</th>
+				<td><button class="noCheckmark" onclick="contentChange('collectionDrillDown', 'Low-fidelity Mockups > Collection > Drill-Down Detail')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('collectionCustom', 'Low-fidelity Mockups > Collection > Custom')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('collectionCallout', 'Low-fidelity Mockups > Collection > Callout')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Observatory</th>
+				<td><button class="noCheckmark" onclick="contentChange('observatoryDrillDown', 'Low-fidelity Mockups > Observatory > Drill-Down Detail')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('observatoryCustom', 'Low-fidelity Mockups > Observatory > Custom')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('observatoryCallout', 'Low-fidelity Mockups > Observatory > Callout')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Platform (mooring)</th>
+				<td><button class="noCheckmark" onclick="contentChange('platformMDrillDown', 'Low-fidelity Mockups > Platform (mooring) > Drill-Down Detail')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformMCustom', 'Low-fidelity Mockups > Platform (mooring) > Custom')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformMCallout', 'Low-fidelity Mockups > Platform (mooring) > Callout')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Platform (glider)</th>
+				<td><button class="noCheckmark" onclick="contentChange('platformGDrillDown', 'Low-fidelity Mockups > Platform (glider) > Drill-Down Detail')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformGCustom', 'Low-fidelity Mockups > Platform (glider) > Custom')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformGCallout', 'Low-fidelity Mockups > Platform (glider) > Callout')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Instrument</th>
+				<td><button class="noCheckmark" onclick="contentChange('instrumentDrillDown', 'Low-fidelity Mockups > Instrument > Drill-Down Detail')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('instrumentCustom', 'Low-fidelity Mockups > Instrument > Custom')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('instrumentCallout', 'Low-fidelity Mockups > Instrument > Callout')"></button></td>
+			</tr>
+		</table>
+
+		<table id="table"><!-- Create/Edit, Collection -->
+			<tr>
+				<th class="hdrCol"></th>
+				<th class="hdrRow">Create/ Edit</th>
+				<th class="hdrRow">Collection</th>
+			</tr>
+			<tr>
+				<th class="hdrCol">Wireframe</th>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeCreate_Edit', 'Low-fidelity Mockups > Wireframe > Create/Edit')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('wireframeCollection', 'Low-fidelity Mockups > Wireframe > Collection')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Collection</th>
+				<td><button class="noCheckmark" onclick="contentChange('collectionCreate_Edit', 'Low-fidelity Mockups > Collection > Create/Edit')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('collectionCollection', 'Low-fidelity Mockups > Collection > Collection')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Observatory</th>
+				<td><button class="noCheckmark" onclick="contentChange('observatoryCreate_Edit', 'Low-fidelity Mockups > Observatory > Create/Edit')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('observatoryCollection', 'Low-fidelity Mockups > Observatory > Collection')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Platform (mooring)</th>
+				<td><button class="noCheckmark" onclick="contentChange('platformMCreate_Edit', 'Low-fidelity Mockups > Platform (mooring) > Create/Edit')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformMCollection', 'Low-fidelity Mockups > Platform (mooring) > Collection')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Platform (glider)</th>
+				<td><button class="noCheckmark" onclick="contentChange('platformGCreate_Edit', 'Low-fidelity Mockups > Platform (glider) > Create/Edit')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('platformGCollection', 'Low-fidelity Mockups > Platform (glider) > Collection')"></button></td>
+			</tr>
+			<tr>
+				<th class="hdrCol">Instrument</th>
+				<td><button class="noCheckmark" onclick="contentChange('instrumentCreate_Edit', 'Low-fidelity Mockups > Instrument > Create/Edit')"></button></td>
+				<td><button class="noCheckmark" onclick="contentChange('instrumentCollection', 'Low-fidelity Mockups > Instrument > Collection')"></button></td>
+			</tr>
+		</table>
+	</ul>
+
+
 
 </div>
 
@@ -323,142 +486,109 @@ function contentChange(divId, bc){
 
 <!-- content ----------------------------------------------------------------------- -->
 
-<!-- <script>document.write(assetsUrl)</script> -->
 
+<!-- Workflows -->
+<div>
+</div>
 
 <!-- Pixel-Perfect Mockups -->
 
 <div id="ppDashboard" style="display: none">
 	<div class="imgWrapper">
-		<img src="Pixel-Perfect Mockups/Dashboard.png" alt=""/>
+		<img src="Pixel-Perfect Mockups/Dashboard.png" onerror="ImgError(this);"/>
 	</div>
 </div>
 
 <div id="ppFacepage" style="display: none">
 	<div class="imgWrapper">
-		<img src="Pixel-Perfect Mockups/Facepage.png" alt="Pixel-Perfect Facepage" />
+		<img src="Pixel-Perfect Mockups/Facepage.png"  onerror="ImgError(this);"  />
 	</div>
 </div>
 
 <div id="ppRelated" style="display: none">
 	<div class="imgWrapper">
-		<img src="Pixel-Perfect Mockups/Related.png" alt=""/>
+		<img src="Pixel-Perfect Mockups/Related.png"  onerror="ImgError(this);"/>
 	</div>
 </div>
 
 <div id="ppStatus" style="display: none">
 	<div class="imgWrapper">
-		<img src="Pixel-Perfect Mockups/Status.png" alt=""/>
+		<img src="Pixel-Perfect Mockups/Status.png"  onerror="ImgError(this);"/>
 	</div>
 </div>
 
 
-<!-- Wireframes -->
+<!-- Panel Types -->
 
-
-<!-- Low-fidelity  Mockups -->
-
-
-<!-- 	Collection -->
-
-<div id="collectionFacepage" style="display: none">
+<div id="attrGroupWireframe" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Collection Facepage.png" alt=""/>
+		<img src="Panel Types\Attribute Group Wireframe 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="collectionRelated" style="display: none">
+<div id="attrGroupLowFidelity" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Collection Related.png" alt="" />
+		<img src="Panel Types\Attribute Group LF 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="collectionStatus" style="display: none">
+<div id="attrGroupPixelPerfect" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Collection Status.png" alt="" />
+		<img src="Panel Types\Attribute Group PP 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<!-- 	Observatory -->
-
-<div id="observatoryFacepage" style="display: none">
+<div id="calloutWireframe" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Observatory Facepage.png" alt="" />
+		<img src="Panel Types\Call-out Wireframe 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="observatoryRelated" style="display: none">
+<div id="calloutLowFidelity" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Observatory Related.png" alt="" />
+		<img src="Panel Types\Call-out LF 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="observatoryStatus" style="display: none">
+<div id="calloutPixelPerfect" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Observatory Status.png" alt="" />
+		<img src="Panel Types\Call-out PP 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-
-<!-- 	Platform (mooring) -->
-
-<div id="platformMFacepage" style="display: none">
+<div id="chartWireframe" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Platform (mooring) Facepage.png" alt="Platform Facepage" />
+		<img src="Panel Types\Chart Wireframe 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="platformMRelated" style="display: none">
+<div id="chartLowFidelity" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Platform (mooring) Related.png" alt="Platform Related" />
+		<img src="Panel Types\Chart LF 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="platformMStatus" style="display: none">
+<div id="chartPixelPerfect" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Platform (mooring) Status.png" alt="Platform Status" />
+		<img src="Panel Types\Chart PP 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-
-<!-- 	Platform (glider) -->
-
-<div id="platformGFacepage" style="display: none">
+<div id="tableWireframe" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Platform (glider) Facepage.png" alt="" />
+		<img src="Panel Types\Table Wireframe 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="platformGRelated" style="display: none">
+<div id="tableLowFidelity" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Platform (glider) Related.png" alt="" />
+		<img src="Panel Types\Table LF 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
-<div id="platformGStatus" style="display: none">
+<div id="tablePixelPerfect" style="display: none">
 	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Platform (glider) Status.png" alt="" />
-	</div>
-</div>
-
-
-<!-- 	Instrument -->
-
-<div id="instrumentFacepage" style="display: none">
-	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Instrument Facepage.png" alt="Instrument Facepage" />
-	</div>
-</div>
-
-<div id="instrumentRelated" style="display: none">
-	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Instrument Related.png" alt="" />
-	</div>
-</div>
-
-<div id="instrumentStatus" style="display: none">
-	<div class="imgWrapper">
-		<img src="Low-fidelity Mockups\Instrument Status.png" alt="" />
+		<img src="Panel Types\Table PP 0.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
@@ -467,28 +597,28 @@ function contentChange(divId, bc){
 
 <div id="customViewDrillDown" style="display: none">
 	<div class="imgWrapper">
-		<img src="Custom Views\Chart Drill-Down.png" alt="" />
+		<img src="Custom Views\Chart Drill-Down.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
 <div id="customViewCommand" style="display: none">
 	<div class="imgWrapper">
-		<img src="Custom Views\Platform Command.png" alt="" />
+		<img src="Custom Views\Platform Command.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
 <div id="customViewDirectCommand" style="display: none">
 	<div class="imgWrapper">
-		<img src="Custom Views\Platform Direct Command.png" alt="" />
+		<img src="Custom Views\Platform Direct Command.png"  onerror="ImgError(this);" />
 	</div>
 </div>
 
 
 <!-- Panel Interaction Demos -->
 
-<div id="dragNDrop" style="display: none">
-	<div class="explanation">
-		Drag and drop:
+<div id="customizeLayout" style="display: none">
+	<div class="directions">
+		Customize Layout:
 		<p>The Dashboard tab can be moved among tab groups using drag and drop.</p>
 	</div>
 	<div class="videoWrapper">
@@ -501,9 +631,9 @@ function contentChange(divId, bc){
 	</div>
 </div>
 
-<div id="filtering" style="display: none">
-	<div class="explanation">
-		Filtering:
+<div id="filter" style="display: none">
+	<div class="directions">
+		Filters:
 		<p>To display filter criteria click the "Filter" checkbox (in the bottom right tab labeled "Table").
 		The Plus button adds a new filter, the Minus buttons remove a filter.
 		To turn off filtering, click the Close button, or remove all the filters (using the Minus buttons), or uncheck the "Filter" checkbox.
@@ -519,10 +649,10 @@ function contentChange(divId, bc){
 	</div>
 </div>
 
-<div id="splitTables" style="display: none">
-	<div class="explanation">
-		Platform Status Detail Views:
-		<p>Sensor number 5 in the Engineering Sensors tab has an issue; to drill-down into the data, open a detail view for the sensor
+<div id="embeddedTables" style="display: none">
+	<div class="directions">
+		Embedded Tables:
+		<p>Sensor number 5 in the Engineering Sensors tab has an issue; to drill-down into the data, open a detail view table for the sensor
 		by clicking the gray arrow to the left of the circular red P indicator.  To close the detail view,
 		click the gray arrow again.<br>
 		<br>
@@ -548,9 +678,10 @@ function contentChange(divId, bc){
 	</div>
 </div>
 
-<div id="mapExpand" style="display: none">
-	<div class="explanation">
-		Click and drag on the Search Map (upper left) to expand it
+<div id="search" style="display: none">
+	<div class="directions">
+		Search:
+		<p>Click and drag on the Search Map (upper left) to expand it</p>
 	</div>
 	<div class="videoWrapper">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
@@ -562,21 +693,20 @@ function contentChange(divId, bc){
 	</div>
 </div>
 
-<div id="panelEditing" style="display: none">
-	<div class="explanation">
+<div id="panelEdit" style="display: none">
+	<div class="directions">
 		Panel Editing:
 		<p>
-		To edit the Information panel, hover your mouse over it, then click the button that appears in the panel's upper right.
+		To edit the Information panel, hover your mouse over it, then click the Edit button that appears in the panel's upper right.
 		To exit edit mode, click the Cancel button.
 		</p>
 		Panel Change Views:
 		<p>
-		To change the view of the Documentation subpanel of Panel D, hover your mouse over the subpanel,
-		then click the button that appears and click again on the drop-down menu (for this demo it doesn't matter which menu item you choose).
-		The subpanel will change to a detail view.  To close the detail view, click the Cancel button.
+		To change the Documentation subpanel of Panel D to a detail view, hover your mouse over the subpanel,
+		then click the Details button that appears. To close the detail view, click the Cancel button.
 		</p>
 	</div>
-	<div class="videoWrapper">
+	<div class="videoWrapper" style="padding-top:0px;">
 		<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,29,0">
 			<param name="movie" value="Panel Interaction Demos\Panel Editng and Panel Change Views.swf" />
 			<param name="quality" value="high" />
@@ -586,6 +716,329 @@ function contentChange(divId, bc){
 	</div>
 </div>
 
+
+<!-- Low-fidelity  Mockups -->
+
+<!-- 	Facepage, Status, Related -->
+<!-- 		Wireframes -->
+
+<div id="wireframeFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Facepage Wireframe 0.png"  onerror="ImgError(this);"/>
+	</div>
+</div>
+
+<div id="wireframeStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Status Wireframe 0.png"  onerror="ImgError(this);"/>
+	</div>
+</div>
+
+<div id="wireframeRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Related Wireframe 0.png"  onerror="ImgError(this);"/>
+	</div>
+</div>
+
+<!-- 		Collection -->
+
+<div id="collectionFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Facepage Collection 0.png"  onerror="ImgError(this);"/>
+	</div>
+</div>
+
+<div id="collectionRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Related Collection 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="collectionStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Status Collection 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Observatory -->
+
+<div id="observatoryFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Facepage Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="observatoryRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Related Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="observatoryStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Status Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+
+<!-- 		Platform (mooring) -->
+
+<div id="platformMFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Facepage Platform (mooring) 0.png" onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformMRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Related Platform (mooring) 0.png" onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformMStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Status Platform (mooring) 0.png" onerror="ImgError(this);" />
+	</div>
+</div>
+
+
+<!-- 		Platform (glider) -->
+
+<div id="platformGFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Facepage Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformGRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Related Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformGStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Status Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+
+<!-- 		Instrument -->
+
+<div id="instrumentFacepage" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Facepage Instrument 0.png" onerror="ImgError(this);" alt="asdfasdfasdf"/>
+	</div>
+</div>
+
+<div id="instrumentRelated" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Related Instrument 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="instrumentStatus" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Status Instrument 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+
+<!-- 	Drill-Down Detail, Custom, Callout -->
+<!-- 		Wireframe -->
+<div id="wireframeDrillDown" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Drill-Down Wireframe 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="wireframeCustom" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Custom Wireframe 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="wireframeCallout" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Callout Wireframe 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Collection -->
+<div id="collectionDrillDown" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Drill-Down Collection 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="collectionCustom" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Custom Collection 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="collectionCallout" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Callout Collection 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Observatory -->
+<div id="observatoryDrillDown" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Drill-Down Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="observatoryCustom" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Custom Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="observatoryCallout" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Callout Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Platform (mooring) -->
+<div id="platformMDrillDown" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Drill-Down Platform (mooring) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformMCustom" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Custom Platform (mooring) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformMCallout" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Callout Platform (mooring) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Platform (glider) -->
+<div id="platformGDrillDown" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Drill-Down Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformGCustom" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Custom Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformGCallout" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Callout Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Instrument -->
+<div id="instrumentDrillDown" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Drill-Down Instrument 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="instrumentCustom" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Custom Instrument 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="instrumentCallout" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Callout Instrument 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+
+<!-- 	Create/Edit, Collection -->
+
+<!-- 		Wireframe -->
+<div id="wireframeCreate_Edit" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Create_Edit Wireframe 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+<div id="wireframeCollection" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Collection Wireframe 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Collection -->
+<div id="collectionCreate_Edit" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Create_Edit Collection 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="collectionCollection" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Collection Collection 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Observatory -->
+<div id="observatoryCreate_Edit" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Create_Edit Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="observatoryCollection" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Collection Observatory 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Platform (mooring) -->
+<div id="platformMCreate_Edit" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Create_Edit Platform (mooring) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformMCollection" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Collection Platform (mooring) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<!-- 		Platform (glider) -->
+<div id="platformGCreate_Edit" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Create_Edit Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="platformGCollection" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Collection Platform (glider) 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+
+<!-- 		Instrument -->
+<div id="instrumentCreate_Edit" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Create_Edit Instrument 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
+
+<div id="instrumentCollection" style="display: none">
+	<div class="imgWrapper">
+		<img src="Low-fidelity Mockups\Collection Instrument 0.png"  onerror="ImgError(this);" />
+	</div>
+</div>
 
 
 </body>
